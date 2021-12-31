@@ -1,4 +1,4 @@
-Ore abundance in Minecraft Bedrock Edition
+Ore Abundance in Minecraft Bedrock Edition
 ================
 
 **By:** Breeze1074 (CrazyBreeze1074)  
@@ -22,3 +22,15 @@ Base](https://www.chunkbase.com/apps/seed-map#1638586699). After loading
 more than 1000 chunks of data, I then analyzed block densities by
 y-value:  
 ![Ore density in peaks](images/oreDistributions_1638586699.png)
+
+I accessed a very large amount of 1.18 data in seed 26874156 thanks to
+the patrons of **[Prowl8413](https://www.youtube.com/c/Prowl8413)**. By
+processing this data, I could track ore positions in more than 170,000
+chunks. In contrast to above, most of this data resulted from non-peak
+biomes. Looking specifically at regular ores we can see compare
+distributions:  
+![Regular ores only](images/regularOreViolins_1.18.2.03.png)
+
+We can also compare distributions of composite ores (including deepslate
+variants):  
+![Composite ores](images/oreCompositeViolins_1.18.2.03.png)
