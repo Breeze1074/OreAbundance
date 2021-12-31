@@ -37,7 +37,7 @@ pos %>%
         axis.text.y = element_text(size = 12)
   ) +
   ylab("y-level") + xlab("ore abundance") +
-  labs(title = "Ore distribution in 1000 chunks from 'peak' biomes", 
+  labs(title = "Ore distribution\n1000 chunks from 'peak' biomes", 
        subtitle = "Minecraft Bedrock: seed 1638586699",
        caption = "Analysis by Breeze1074") +
   scale_colour_manual(values = cols) + scale_fill_manual(values = cols) + 

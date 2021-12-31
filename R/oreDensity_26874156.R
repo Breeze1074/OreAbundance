@@ -52,70 +52,6 @@ oredering2 <-
 
 oredering <- c(oredering1, oredering2)
 
-violinsReg <-
-  blocks %>%
-  mutate(ore = str_remove_all(block, "minecraft:|lit_")) %>%
-  group_by(ore, y) %>%
-  mutate(ore = factor(ore, oredering)) %>%
-  filter(str_detect(ore, "deepslate_", negate = TRUE) & y > -7) %>% #pull(y) %>% table
-  ggplot(aes(
-    x = ore,
-    y = y,
-    color =  ore,
-    fill = ore
-  )) +
-  geom_violin() +
-  scale_fill_manual(values = cols) +
-  scale_color_manual(values = cols) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "none", 
-        panel.grid.major = element_line(size = 0.5, colour = "gray"),
-        panel.grid.minor = element_line(size = 0.5, colour = "gray"),
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)
-  ) + 
-  labs(title = "Normal ore abundance in 172042 chunks", 
-       subtitle = "Minecraft Bedrock: seed 26874156",
-       caption = "Analysis by Breeze1074") + 
-  xlab(NULL) +
-  ylab("Ore distribution (y-level)")
-
-ggsave(
-  filename = "../images/regularOreViolins_1.18.2.03.png", bg = "white",
-  height = 7, width = 7, units = "in", dpi = 300
-)
-
-violinsDeep <-
-  blocks %>%
-  mutate(ore = str_remove_all(block, "minecraft:|lit_")) %>%
-  group_by(ore, y) %>%
-  mutate(ore = factor(ore, oredering)) %>%
-  filter(str_detect(ore, "deepslate_") & y < 1) %>%
-  ggplot(aes(
-    x = ore,
-    y = y,
-    color =  ore,
-    fill = ore
-  )) +
-  geom_violin() +
-  scale_fill_manual(values = cols_deep) +
-  scale_color_manual(values = cols_deep) +
-  theme_minimal(base_size = 12) +
-  theme(legend.position = "none", 
-        panel.grid.major = element_line(size = 0.5, colour = "gray"),
-        panel.grid.minor = element_line(size = 0.5, colour = "gray"),
-        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)
-  ) +
-  labs(title = "Deepslate ore abundance in 172042 chunks", 
-       subtitle = "Minecraft Bedrock: seed 26874156",
-       caption = "Analysis by Breeze1074") + 
-  xlab(NULL) +
-  ylab("Ore distribution (y-level)")
-
-ggsave(
-  filename = "../images/deepslateOreViolins_1.18.2.03.png", bg = "white",
-  height = 7, width = 7, units = "in", dpi = 300
-)
-
 violinsPooled <-
   blocks %>%
   mutate(ore = str_remove_all(block, "minecraft:|lit_|deepslate_")) %>%
@@ -146,4 +82,34 @@ violinsPooled <-
 ggsave(
   filename = "../images/oreCompositeViolins_1.18.2.03.png", bg = "white",
   height = 13, width = 7, units = "in", dpi = 300
+)
+
+tmp <-
+  blocks %>% #slice_sample(prop = 0.01) %>%
+  mutate(ore = str_remove_all(block, "minecraft:|lit_")) %>%
+  group_by(ore, y) %>%
+  summarize(n = n()) %>%
+  filter(ore == "deepslate_coal_ore" | ore == "deepslate_emerald_ore") %>%
+  mutate(ore = factor(ore, oredering))
+
+
+tmp %>% filter(y < 1) %>%
+  ggplot(., aes(x = y, y = n, color = ore, fill  = ore)) +
+  coord_flip() +
+  geom_col() +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none", 
+        axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1, size = 14),
+        axis.text.y = element_text(size = 12)
+  ) +
+  xlab("y-level") + ylab("ore abundance") +
+  labs(title = "Ore distribution 172042 chunks", 
+       subtitle = "Minecraft Bedrock: seed 26874156",
+       caption = "Analysis by Breeze1074") +
+  scale_colour_manual(values = cols) + scale_fill_manual(values = cols) + 
+  facet_wrap(~ ore, scale = "free") 
+
+ggsave(
+  filename = "../images/deepslate_Coal_Emerald_Distributions_1.18.2.03.png", bg = "white",
+  height = 4, width = 7, units = "in", dpi = 300
 )
