@@ -27,6 +27,8 @@ terrain is plentiful.
 
 ![Ore density in peaks](images/oreDistributions_1638586699.png)
 
+## Finding ores outside of mountain biomes
+
 At times, the player may need to access ores from mining the depths of
 the world. Thus, I accessed a very large amount of 1.18 data with very
 little bias to mountain biomes. This data came from seed 26874156 and is
@@ -44,10 +46,13 @@ if the player needs early access to coal and iron both. Diamonds and
 redstone are easiest to find by mining deep in the world. Another
 compromise can be reached around *y = -10* the player may find early
 access to diamonds, gold, iron, lapis, and redstone at the same time.
+
 ![Composite ores](images/oreCompositeViolins_1.18.2.03.png)
 
+## The rarest of the rare (time for silk touch)
+
 On the whole, most of the ore types are abundant, if the player searches
-as the appropriate y-level. There are two exceptions: deepslate coal ore
+at the appropriate y-level. There are two exceptions: deepslate coal ore
 and deepslate emerald ore. Both of these ore types are exceedingly rare,
 and on economy servers could even replace diamonds as a high value
 currency. In the &gt;170,000 chunks of world data from Prowl’s patron
@@ -55,5 +60,7 @@ world, deepslate coal is only found at *y = -1, -2, or -3*. Deepslate
 emeralds can be found more widely distributed between *y = -1* to *y \~
 -22*. While deepslate coal can be found throughout the world at its
 level range, keep in mind that deepslate emeralds are restricted to
-mountain biomes. ![Deepslate coal and
+mountain biomes.
+
+![Deepslate coal and
 emeralds](images/deepslate_Coal_Emerald_Distributions_1.18.2.03.png)
