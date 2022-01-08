@@ -35,18 +35,19 @@ little bias to mountain biomes. This data came from seed 26874156 and is
 credited to the patrons of
 **[Prowl8413](https://www.youtube.com/c/Prowl8413)** for world
 exploration. I tracked ore positions in more than 170,000 chunks with
-this data. Looking specifically at regular ores we can see and compare
-distributions of the ores acros the world build limit. In contrast to
-peaks, here we find that resource acquisition requires selection of a
-y-level appropriate for your target ore, or compromised for a blend of a
-few ores. For example, this world data suggests mining around *y = 47*
-to *y = 43* is best for acquiring coal and copper ores. Instead, the
-player should mine at *y = 13* to get the most iron ore. However, a good
-compromise can be made by mining around *y = 25* if the player needs
-early access to coal and iron both. Diamonds and redstone ores are
-easiest to find by mining deep in the world. But another compromise can
-be reached around *y = -10* where the player may find early access to
-diamonds, gold, iron, lapis, and redstone ores at the same time.
+this data. Looking at combined regular and deepslate ores we can see and
+compare distributions of the ores across the world build limit. In
+contrast to peaks, here we find that resource acquisition requires
+selection of a y-level appropriate for your target ore, or compromised
+for a blend of a few ores. For example, this world data suggests mining
+around *y = 47* to *y = 43* is best for acquiring coal and copper ores.
+Instead, the player should mine at *y = 13* to get the most iron ore.
+However, a good compromise can be made by mining around *y = 25* if the
+player needs early access to coal and iron both. Diamonds and redstone
+ores are easiest to find by mining deep in the world. But another
+compromise can be reached around *y = -10* where the player may find
+early access to diamonds, gold, iron, lapis, and redstone ores at the
+same time.
 
 ![Composite ores](images/oreCompositeViolins_1.18.2.03.png)
 
